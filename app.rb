@@ -4,7 +4,7 @@ Bundler.setup(:default)
 Bundler.require
 
 enable :sessions
-set :session_secret, "Some random and long sequence"
+set :session_secret, "adasd2aGUGGuweKNFYLgdd32bVyfsdjjYLAR32VGY3197Hgdns"
 
 TWITTER_CONSUMER_KEY = "Your Twitter consumer key"
 TWITTER_CONSUMER_SECRET = "Your Twitter consumer secret"
@@ -14,11 +14,6 @@ use OmniAuth::Builder do
   provider :twitter, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET
 end
 
-Twitter.configure do |config|
-  config.consumer_key = TWITTER_CONSUMER_KEY
-  config.consumer_secret = TWITTER_CONSUMER_SECRET
-end
-
 get "/" do
   erb :index
 end
@@ -26,9 +21,14 @@ end
 get "/auth/twitter/callback" do
   auth = request.env["omniauth.auth"]
 
+  client = Twitter::REST::Client.new do |config|
+    config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
+    config.consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
+    config.access_token = auth.credentials.token
+    config.access_token_secret = auth.credentials.secret
+  end
+
   Twitter.configure do |config|
-    config.oauth_token = auth.credentials.token
-    config.oauth_token_secret = auth.credentials.secret
   end
 
   begin
