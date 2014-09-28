@@ -8,3 +8,7 @@ gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "foreman"
 gem "unicorn"
+
+
+gem "pry"
+gem "pry-remote"

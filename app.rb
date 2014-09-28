@@ -6,9 +6,13 @@ Bundler.require
 enable :sessions
 set :session_secret, "adasd2aGUGGuweKNFYLgdd32bVyfsdjjYLAR32VGY3197Hgdns"
 
-TWITTER_CONSUMER_KEY = "Your Twitter consumer key"
-TWITTER_CONSUMER_SECRET = "Your Twitter consumer secret"
-MESSAGE = "Some message"
+# binding.pry
+TWITTER_CONSUMER_KEY = ENV['TWITTER_CONSUMER_KEY']
+TWITTER_CONSUMER_SECRET = ENV['TWITTER_CONSUMER_SECRET']
+MESSAGE = ENV['MESSAGE']
+
+puts TWITTER_CONSUMER_KEY
+puts MESSAGE
 
 use OmniAuth::Builder do
   provider :twitter, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET
@@ -28,11 +32,8 @@ get "/auth/twitter/callback" do
     config.access_token_secret = auth.credentials.secret
   end
 
-  Twitter.configure do |config|
-  end
-
   begin
-    Twitter.update(MESSAGE)
+    client.update(MESSAGE)
     redirect "/done"
   rescue Exception => error
     $stderr << "#{error.class} => #{error.message}\n"
