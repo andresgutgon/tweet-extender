@@ -15,6 +15,9 @@ body {
   background-color: #F87085;
 }
 
+.jumbotron--dark {
+  background-color: #DBDBDB;
+}
 .jumbotron-canvas {
   background-color: #f9f9f9;
   -webkit-box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.4);

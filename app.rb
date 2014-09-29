@@ -84,10 +84,6 @@ get "/auth/failure" do
   params[:message]
 end
 
-get "/done" do
-  erb :done
-end
-
 get "/login" do
   erb :login
 end
