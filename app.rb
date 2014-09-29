@@ -32,11 +32,13 @@ use OmniAuth::Builder do
 end
 
 get "/" do
-  redirect "/login" unless current_user?
-
-  @name = session[:user][:name]
-  @avatar = session[:user][:image]
-  erb :index
+  if current_user?
+    @name = session[:user][:name]
+    @avatar = session[:user][:image]
+    erb :index
+  else
+    erb :login
+  end
 end
 
 post "/publish" do
