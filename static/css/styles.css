@@ -1,0 +1,25 @@
+body {
+  padding-top: 70px;
+  background-color: #f0f0f0;
+}
+.js-hide {
+  display: none !important;
+}
+
+.tweet-content {
+  min-height: 100px;
+  height: auto;
+}
+
+.higthlight {
+  background-color: #F87085;
+}
+
+.jumbotron-canvas {
+  background-color: #f9f9f9;
+  -webkit-box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.4);
+}
+.jumbotron-canvas .explanation {
+  color: #b2b2b2;
+}

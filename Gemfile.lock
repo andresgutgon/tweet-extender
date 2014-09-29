@@ -4,6 +4,9 @@ GEM
     addressable (2.3.6)
     buftok (0.2.0)
     coderay (1.1.0)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     equalizer (0.0.9)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -25,7 +28,7 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     naught (1.0.0)
-    oauth (0.4.5)
+    oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -37,13 +40,14 @@ GEM
       rack
     omniauth-facebook (1.6.0)
       omniauth-oauth2 (~> 1.1)
-    omniauth-oauth (1.0.0)
+    omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
-    omniauth-twitter (0.0.8)
+    omniauth-twitter (1.0.1)
+      multi_json (~> 1.3)
       omniauth-oauth (~> 1.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -53,6 +57,8 @@ GEM
       pry (~> 0.9)
       slop (~> 3.0)
     rack (1.3.6)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.2.0)
       rack
     raindrops (0.8.0)
@@ -86,13 +92,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   foreman
   omniauth
   omniauth-facebook
-  omniauth-twitter
+  omniauth-twitter (= 1.0.1)
   pry
   pry-remote
   rack (~> 1.3.0)
+  rack-flash3
   sinatra
   twitter (= 5.11.0)
   unicorn

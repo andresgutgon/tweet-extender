@@ -1,7 +1,42 @@
-<p>
-  <%= MESSAGE %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Escribe un tweet</h1>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <img class="media-object" src="<%= @avatar %>" alt="<%= @name %>">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%= @name %></h4>
+          <p><small>Letras usadas</small> <span class="js-counter label label-success">0</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <form class="js-tweet-form" method="GET" action="/publish">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="sr-only" for="tweet">Tu tweet:</label>
+        <div class="js-tweet-content tweet-content form-control" contenteditable></div>
+        <!-- <textarea id="tweet-box" name="tweet" class="form-control" rows="2" placeholder="Escribe lo que quieras aquí..."></textarea> -->
+      </div>
+      <div class="form-group">
+        <button type="submit" class="js-button btn btn-primary" disabled="disabled">Tweet</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="jumbotron jumbotron-canvas ">
+        <div class="js-explanation explanation">
+          <p>Si te pasas de letras aqui aparecerá una imagen con el resto del texto.</p>
+          <p>Esta imagen subirá como archivo adjunto en tu tweet.</p>
+        </div>
+        <canvas class="canvas-c" id="tweet-canvas" width="435"></canvas>
+      </div>
+    </div>
+  </form>
+</div>
 
-<p>
-  <a href="/auth/twitter">Envie para o Twitter!</a>
-</p>
+
+
