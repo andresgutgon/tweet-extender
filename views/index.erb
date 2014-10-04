@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header">
-      <h1>Escribe un tweet</h1>
+      <h1>Write a tweet</h1>
       <div class="media">
         <a class="pull-left" href="#">
           <img class="media-object" src="<%= @avatar %>" alt="<%= @name %>">
         </a>
         <div class="media-body">
           <h4 class="media-heading"><%= @name %></h4>
-          <p><small>Letras usadas</small> <span class="js-counter label label-success">0</span></p>
+          <p><small>Used words</small> <span class="js-counter label label-success">0</span></p>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
   <form class="js-tweet-form" method="GET" action="/publish">
     <div class="col-md-4">
       <div class="form-group">
-        <label class="sr-only" for="tweet">Tu tweet:</label>
+        <label class="sr-only" for="tweet">Your tweet:</label>
         <div class="js-tweet-content tweet-content form-control" contenteditable></div>
         <!-- <textarea id="tweet-box" name="tweet" class="form-control" rows="2" placeholder="Escribe lo que quieras aquí..."></textarea> -->
       </div>
@@ -29,8 +29,8 @@
     <div class="col-md-6">
       <div class="jumbotron jumbotron-canvas ">
         <div class="js-explanation explanation">
-          <p>Si te pasas de letras aqui aparecerá una imagen con el resto del texto.</p>
-          <p>Esta imagen subirá como archivo adjunto en tu tweet.</p>
+          <p>If you go over letters here an image will appear with the rest of the text.</p>
+          <p>This image will rise as an attachment in your tweet.</p>
         </div>
         <canvas class="canvas-c" id="tweet-canvas" width="435"></canvas>
       </div>
