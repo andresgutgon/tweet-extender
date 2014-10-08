@@ -113,7 +113,14 @@ $(function () {
    * Listen to user input in keyboard
    */
   $tweet_textarea.on('change keyup', function () {
-    onUserKeyUp();
+    var text = $tweet_textarea.val()
+      , count;
+
+    count = window.twttr.txt.getTweetLength(text)
+
+    $('.js-counter').text(count);
+    $('.js-button').attr('disabled', !count);
+    onUserKeyUp(text, count);
   }).change();
 
   /*

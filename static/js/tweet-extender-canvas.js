@@ -111,22 +111,21 @@ function generateImageForTweet(canvas, backgroundColor) {
   return imageData;
 }
 
-function onUserKeyUp () {
-  var text = $tweet_textarea.val()
-    , slice_text
+/*
+ * Manage user input on textarea
+ *
+ * @param {String} text
+ * @param {Integer} count
+ */
+function onUserKeyUp (text, count) {
+  var slice_text
     , slice_text_end
-    , count
     , canvas = document.getElementById('tweet-canvas')
     , context = canvas.getContext('2d')
     , maxWidth
     , lineHeight = 24
     , x_pos
     , y_pos = 15;
-
-  count = window.twttr.txt.getTweetLength(text)
-
-  $('.js-counter').text(count);
-  $('.js-button').attr('disabled', !count);
 
   // sets maximum line width, line height, and x /y coords for text
   maxWidth = canvas.width - 20;
