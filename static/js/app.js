@@ -109,6 +109,8 @@ function getFormData(text) {
  */
 $(function () {
 
+  $('#tweet-box').autosize();
+
   /*
    * Listen to user input in keyboard
    */
@@ -120,6 +122,7 @@ $(function () {
 
     $('.js-counter').text(count);
     $('.js-button').attr('disabled', !count);
+    $('.js-explanation').toggleClass('js-hide', count > MAX_TWEET_LENGTH);
     onUserKeyUp(text, count);
   }).change();
 

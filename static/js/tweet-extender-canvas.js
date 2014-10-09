@@ -135,9 +135,6 @@ function onUserKeyUp (text, count) {
   context.fillStyle = '#333';
 
   clearCanvas(canvas);
-
-  $('.js-explanation').toggleClass('js-hide', count > MAX_TWEET_LENGTH);
-
   if (count > MAX_TWEET_LENGTH) {
     slice_text_end = getExtraTextPosition(text);
     slice_text = text.slice(slice_text_end, count);
