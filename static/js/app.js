@@ -114,7 +114,7 @@ $(function () {
   /*
    * Listen to user input in keyboard
    */
-  $tweet_textarea.on('change keyup', function () {
+  $tweet_textarea.on('change keyup paste', function () {
     var text = $tweet_textarea.val()
       , count;
 
@@ -123,7 +123,7 @@ $(function () {
     $('.js-counter').text(count);
     $('.js-button').attr('disabled', !count);
     $('.js-explanation').toggleClass('js-hide', count > MAX_TWEET_LENGTH);
-    onUserKeyUp(text, count);
+    renderExtraText(text, count);
   }).change();
 
   /*
@@ -145,6 +145,14 @@ $(function () {
         window.location = '/';
       }
     })
+  });
+
+  $(window).resize(function() {
+    var text = $tweet_textarea.val()
+      , count;
+    count = window.twttr.txt.getTweetLength(text);
+
+    renderExtraText(text, count);
   });
 
   /*
